@@ -1,5 +1,10 @@
-// lol holding the questions in an array like this? it working
-var questions = ["question 1", "question 2", "question 3", "question 4"];
+// lol holding the questions in an array like this? its working
+// i dont know anything about sonic but i needed a theme
+
+var questions = ["question 1: who is the blue hedgehog?",
+    "question 2: who is the cooler/darker version of him that uses guns?",
+    "question 3: who is the main bad guy in the sonic world?",
+    "how many chaos emeralds are there in the original game?"];
 
 // holding the setInterval
 var showQuestion;
@@ -10,6 +15,11 @@ var count = 0;
 // holding the amount of right & wrong answers
 var correct = 0;
 var incorrect = 0;
+var unanswered = 0;
+
+// state if the answer is correct or not
+
+var correctState = true
 
 // TIMER STUFF 
 // timer number
@@ -32,7 +42,18 @@ function decrement() {
     //  Show the number in the #show-number tag.
     $("#show-number").html("<h2>" + number + "</h2>");
 
-    if (number === 1) {
+    // did a little trick so between the questions i just add the seconds in and make it look like 0 if it's over 30 seconds lol
+    // yeah I know i could trigger some other function to show a different timer but I really wanted to see if this would work
+    // it does
+
+    if (number > 3) {
+
+        $("#show-number").html("<h2>" + "0" + "</h2>");
+
+    }
+
+
+    else if (number === 1) {
 
         number += 3
 
@@ -54,55 +75,165 @@ function stop() {
 $("#start").click(startGame);
 $("#start").click(displayQuestion);
 
+
+
+
+
+
+
+
+
 $("#stop").click(stopGame);
 $("#stop").click(stop);
 
 
 
 
-// This function will replace display whatever image it's given
-// in the 'src' attribute of the img tag.
+
 function displayQuestion() {
     $("#questionHolder").html(questions[count]);
     run();
 
 
+    // displaying questions
+
+    if (count === 3) {
+
+
+        $("#questionHolder").append(" <form> " +
+            "<label>" + "<input type='radio' id='q1_radio_1' name='radiobtn' value = '2' > 4" + "</label>" + "<br>" +
+            "<label>" + "<input type='radio' id='q1_radio_2' name='radiobtn' value = '2' > 9" + "</label>" + "<br>" +
+            "<label>" + "<input type='radio' id='q1_radio_3' name='radiobtn' value = '1' > 6" + "</label>" + "<br>" + " </form> ");
+
+
+    }
+
+    else if (count === 2) {
+
+
+        $("#questionHolder").append(" <form> " +
+            "<label>" + "<input type='radio' id='q1_radio_1' name='radiobtn' value = '2' > Shadow" + "</label>" + "<br>" +
+            "<label>" + "<input type='radio' id='q1_radio_2' name='radiobtn' value = '1' > Eggman" + "</label>" + "<br>" +
+            "<label>" + "<input type='radio' id='q1_radio_3' name='radiobtn' value = '2' > Tails" + "</label>" + "<br>" + " </form> ");
+
+
+    }
+
+    else if (count === 1) {
+
+
+        $("#questionHolder").append(" <form> " +
+            "<label>" + "<input type='radio' id='q1_radio_1' name='radiobtn' value = '2' > Eggman" + "</label>" + "<br>" +
+            "<label>" + "<input type='radio' id='q1_radio_2' name='radiobtn' value = '1' > Shadow" + "</label>" + "<br>" +
+            "<label>" + "<input type='radio' id='q1_radio_3' name='radiobtn' value = '2' > Dr. Mario" + "</label>" + "<br>" + " </form> ");
+
+
+    }
+
+    else if (count === 0) {
+
+
+
+
+        $("#questionHolder").append(" <form> " +
+            "<label>" + "<input type='radio' id='q1_radio_1' name='radiobtn' value = '1' > Sonic" + "</label>" + "<br>" +
+            "<label>" + "<input type='radio' id='q1_radio_2' name='radiobtn' value = '2' > Knuckles" + "</label>" + "<br>" +
+            "<label>" + "<input type='radio' id='q1_radio_3' name='radiobtn' value = '2' > Tails" + "</label>" + "<br>" + " </form> ");
+
+
+
+
+
+
+    }
+
 }
 
 function nextQuestion() {
 
+    // these are statements that log correct / incorrect answers
+
+
+    
+
+        var radioValue = $("input[name='radiobtn']:checked").val();
+
+        console.log(radioValue)
+
+        if (radioValue) {
+
+            if (radioValue === "2") {
+
+                incorrect++;
+                correctState = false;
+
+
+            }
+
+            else if (radioValue === "1") {
+
+                correct++;
+                correctState = true;
+
+            }
+
+
+
+        }
+
+        else {
+
+            incorrect++
+            unanswered++
+            correctState = false;
+
+        }
+
+
+    
+
+
     run();
 
+       // showing the results page
+       $("#questionHolder").html("correct: " + correct + "<br>" + "incorrect: " + incorrect + "<br>" + "unanswered: " + unanswered);
 
-    //  TODO: Increment the count by 1.
+    //  Increment the count by 1.
     count++;
 
-    // TODO: Show the loading gif in the "image-holder" div.
-    $("#questionHolder").html("this will be the loading screen");
+
+
+
+ 
+
+
+
+
+
     $("#show-number").html("<h2>" + "0" + "</h2>");
 
 
-    // TODO: Use a setTimeout to run displayImage after 1 second.
+    // how long it will be up
     setTimeout(displayQuestion, 1000);
 
 
 
-    // TODO: If the count is the same as the length of the image array, reset the count to 0.
+    // right now it ends the game but I can make it loop later
     if (count === questions.length) {
 
-        $("#questionHolder").html("END GAME");
-        stopGame();
-
+        count = 0;
 
 
 
     }
 }
 
+
+
 function startGame() {
     clearInterval(showQuestion);
 
-    // TODO: Use showImage to hold the setInterval to run nextImage.
+    // hold the setInterval to run nextquest
     showQuestion = setInterval(nextQuestion, 4000);
 
 }
@@ -110,16 +241,15 @@ function startGame() {
 function stopGame() {
 
     // TODO: Put our clearInterval here:
-    
+
     clearInterval(showQuestion);
-    
+
     showQuestion = setInterval(nextQuestion, 4000);
-    
+
 
 
 }
 
-// This will run the display image function as soon as the page loads.
 
 
 
