@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head></head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trivia Game</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   
-
-    
-</head>
-<body>
-    
-
-<h1>Trivia Game</h1>
-
-<h2 id="questionHolder">Question finna be here</h2>
-<h2 id = "show-number">timer finna be here</h2>
-
-<button id="start">start</button>
-<button id="stop">stop</button>
-
-
-
-
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Trivia Game</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="javascript/app.js"></script>
+<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+
+                <h1 class="display-4">SONIC THE HEDGEHOG FAST TRIVIA</h1>
+
+            </div>
+        </div>
+
+
+
+
+        <h2 class="container text-center" id="questionHolder">Question finna be here</h2>
+        <h2 class="container text-center" id="show-number">timer finna be here</h2>
+
+        <button class="container text-center btn btn-primary" id="start">
+            <i class="fa fa-flag-checkered" aria-hidden="true"></i> CLICK TO START <i class="fa fa-flag-checkered" aria-hidden="true"></i>
+        </button>
+        <div class="container text-center" id="restartDiv"></div>
+
+
+        <!-- <button id="restart">restart</button> -->
+
+
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="javascript/app.js"></script>
 
 
 </body>
+
 </html>
