@@ -11,13 +11,18 @@ background-image: url(..//images/sonicHeader.jpg);
 
 
 
+
 body {
 
-
+background: brown;
 background-image: url(..//images/sonicBG.jpg);
+
 background-repeat: no-repeat;
 
+
+
 }
+
 
 
 h1 {
@@ -66,6 +71,11 @@ h2 {
 
 
 background: rgba(1, 167, 1, 0.911);
+
+background-image: url(..//images/sonicBGwide.gif);
+background-size: cover;
+background-repeat: no-repeat;
+
 
 
 }

@@ -1,10 +1,10 @@
 // lol holding the questions in an array like this? its working
 // i dont know anything about sonic but i needed a theme
 
-var questions = ["question 1: who is the blue hedgehog?",
-    "question 2: who is the cooler/darker version of sonic that uses guns?",
-    "question 3: who is the main bad guy in the sonic world?",
-    "how many chaos emeralds are there in the original game?"];
+var questions = ["WHO IS THE BLUE HEDGEHOG?",
+    "WHO IS THE COOLER VERSION OF HIM THAT HAS GUNS?",
+    "WHO IS THE MAIN BAD GUY?",
+    "HOW MANY CHAOS EMERALDS ARE THERE IN THE OG GAME?"];
 
 
 // holding the setInterval
