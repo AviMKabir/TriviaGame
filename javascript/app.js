@@ -151,14 +151,38 @@ function restartGame() {
 
 }
 
-// click to run game
+// clicks to run game
 $("#start").click(startGame);
 $("#start").click(displayQuestion);
+$("#start").click(playSound3);
+
 $("#stop").click(stop);
 
 
 
 $("#restart").click(restartGame);
+$("#restart").click(playSound);
+
+
+
+
+// legit just two functions that play a sound i loaded in 
+// made functions so i can call them with clicks
+function playSound() {
+    var sound = document.getElementById("ring");
+    sound.play();
+}
+
+function playSound2() {
+    var sound = document.getElementById("ringLoss");
+    sound.play();
+}
+
+function playSound3() {
+    var sound = document.getElementById("jump");
+    sound.play();
+}
+
 
 
 
@@ -242,7 +266,7 @@ function nextQuestion() {
             incorrect++;
             correctState = 0;
             $("#questionHolder").html("incorrect! the answer was " + answerVar + "<br>" + "correct: " + correct + "<br>" + "incorrect: " + incorrect + "<br>" + "unanswered: " + unanswered);
-
+playSound2();
 
         }
 
@@ -251,7 +275,7 @@ function nextQuestion() {
             correct++;
             correctState = 1;
             $("#questionHolder").html("correct! the answer was " + answerVar + "<br>" + "correct: " + correct + "<br>" + "incorrect: " + incorrect + "<br>" + "unanswered: " + unanswered);
-
+playSound();
 
         }
 
@@ -265,6 +289,9 @@ function nextQuestion() {
         unanswered++
         correctState = 0;
         $("#questionHolder").html("incorrect! the answer was " + answerVar + "<br>" + "correct: " + correct + "<br>" + "incorrect: " + incorrect + "<br>" + "unanswered: " + unanswered);
+        playSound2();
+
+
 
     }
 
@@ -301,6 +328,8 @@ function nextQuestion() {
 
         $("#restartDiv").append( '<button id= "restart" class = "btn btn-success"> <i class="fa fa-circle-o" style="color:yellow;" aria-hidden="true"></i> RESTART <i class="fa fa-circle-o" style="color:yellow;" aria-hidden="true"></i></button> ' )
         $("#restart").click(restartGame);
+        $("#restart").click(playSound3);
+
 
 
 
