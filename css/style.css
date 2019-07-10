@@ -1,0 +1,72 @@
+.pageHeader {
+
+
+background-image: url(..//images/sonicHeader.jpg);
+
+
+
+
+}
+
+
+
+
+body {
+
+
+background-image: url(..//images/sonicBG.jpg);
+background-repeat: no-repeat;
+
+}
+
+
+h1 {
+    
+    
+    font-style: italic;
+    font-weight: 900;
+    color: yellow;
+    text-shadow: 4px 4px #1100ff;
+
+    
+    
+    
+    
+
+
+
+}
+
+h3 {
+    
+    
+    font-style: italic;
+    font-weight: 700;
+    color: yellow;
+    text-shadow: 4px 4px #1100ff;
+
+
+
+}
+
+h2 {
+
+
+
+
+    font-family: 'Racing Sans One', cursive;
+    color: yellow;
+    text-shadow: 4px 4px #1100ff;
+
+
+
+}
+
+.gameDiv {
+
+
+background: rgba(1, 167, 1, 0.911);
+
+
+}
+
